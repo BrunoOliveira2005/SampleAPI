@@ -33,7 +33,10 @@ public class UserService {
 		
 		
 		newUser.setName(newUser.getName().trim());
-		
+
+		if (this.repository.existsByEmail(newUser.getEmail()))
+			throw new Exception("Já existe usuario cadastrado com esse email!\n");
+
 		this.repository.save(newUser);
 		
 		return newUser;
