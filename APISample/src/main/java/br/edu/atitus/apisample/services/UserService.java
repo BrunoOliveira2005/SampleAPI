@@ -1,7 +1,7 @@
 package br.edu.atitus.apisample.services;
 
 import org.springframework.stereotype.Service;
-
+import java.util.List;
 import br.edu.atitus.apisample.entities.UserEntity;
 import br.edu.atitus.apisample.repositories.UserRepository;
 
@@ -41,5 +41,9 @@ public class UserService {
 		
 		return newUser;
 		
+	}
+
+	public List<UserEntity> findAll() throws Exception {
+		return repository.findAll();
 	}
 }
